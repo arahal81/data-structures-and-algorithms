@@ -24,3 +24,4 @@ To run your tests
   | challenge_NO | Link |
   | ------ | ------------------------------------------------------------- |
   | Code_challenge_01 | [Code_challenge_01](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/code_challenges/array_reverse/README.md) |
+  | Code_challenge_01 | [Code_challenge_01](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/code_challenges/array_shift/README.md) |

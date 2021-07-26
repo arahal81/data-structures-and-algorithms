@@ -4,7 +4,7 @@ this program to reverse array content.
 
 ## Whiteboard Process
 
-![](ReverseArray.png)
+![](ReverseArray1.png)
 
 ## Approach & Efficiency
 

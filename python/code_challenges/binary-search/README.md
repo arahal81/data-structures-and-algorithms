@@ -4,7 +4,7 @@ this program use binary search algorithem to serch inside list for element.
 
 ## Whiteboard Process
 
-![](codeChallenge03.png)
+![](codechallenge03.png)
 
 ## Approach & Efficiency
 

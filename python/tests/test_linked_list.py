@@ -38,3 +38,40 @@ def llt():
     linked_list.insert(10)
     linked_list.insert(5)
     return linked_list
+def test_linked_append(llt):
+    llt.append(6)
+    assert str(llt) == f' {{5}} ->  {{10}} ->  {{15}} ->  {{6}} -> NULL'
+
+# Can successfully add multiple nodes to the end of a linked list
+
+def test_linked_multiple_append(llt):
+    llt.append(4)
+    llt.append(7)
+    llt.append(11)
+    assert str(llt) == f' {{5}} ->  {{10}} ->  {{15}} ->  {{4}} ->  {{7}} ->  {{11}} -> NULL'
+
+# Can successfully insert a node before a node located in the middle of a linked list
+
+def test_linked_insert_before(llt):
+    llt.insert_before(5,3)
+    assert str(llt) == f' {{3}} ->  {{5}} ->  {{10}} ->  {{15}} -> NULL'
+
+# Can successfully insert a node before the first node of a linked list
+
+def test_linked_insert_before_first(llt):
+    llt.insert_before(15,7)
+    assert str(llt) == f' {{5}} ->  {{10}} ->  {{7}} ->  {{15}} -> NULL'
+
+# Can successfully insert after a node in the middle of the linked list
+
+def test_linked_insert_after(llt):
+    llt.insert_after(10,8)
+    assert str(llt) == f' {{5}} ->  {{10}} ->  {{8}} ->  {{15}} -> NULL'
+
+# Can successfully insert a node after the last node of the linked list
+
+def test_linked_insert_after_last(llt):
+    llt.insert_after(15,20)
+    assert str(llt) == f' {{5}} ->  {{10}} ->  {{15}} ->  {{20}} -> NULL'
+def test_linked_values(llt):
+    assert str(llt) == f" {{5}} ->  {{10}} ->  {{15}} -> NULL"

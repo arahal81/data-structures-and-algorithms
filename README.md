@@ -27,3 +27,4 @@ To run your tests
   | Code_challenge_02 | [Code_challenge_02](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/code_challenges/array_shift/README.md) |
   | Code_challenge_03 | [Code_challenge_03](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/code_challenges/binary-search/README.md) |
   | Code_challenge_05 | [Code_challenge_05](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/linked_list/README.md) |
+  | Code_challenge_06 | [Code_challenge_05](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/linked_list/README.md) |

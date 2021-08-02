@@ -68,6 +68,23 @@ class LinkedList:
                 break
             current_node=current_node.next
 
+    def kthFromEnd(self,k):
+        current = self.head
+        if current == None:
+            return ("Empty List")
+
+        if k <= -1:
+           return("Negative number not acceptable")
+        values=[]
+        while current:
+            values =values+ [current.value]
+            current = current.next
+        print(values)
+        try:
+
+            return values[::-1][k]
+        except IndexError:
+            return ("Index not found")
 
     def __str__(self) -> str:
         string = ""
@@ -79,12 +96,14 @@ class LinkedList:
         string += "NULL"
         return string
 
-
 if __name__ == "__main__":
     ll = LinkedList()
     ll.insert(5)
     ll.insert(4)
+    ll.insert(1)
+    ll.insert(2)
     node1 = Node(1)
     node2 = Node(2)
     node3 = node1 + node2
     print(ll.includes(5))
+    print(ll.kthFromEnd(6))

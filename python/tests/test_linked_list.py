@@ -75,3 +75,25 @@ def test_linked_insert_after_last(llt):
     assert str(llt) == f' {{5}} ->  {{10}} ->  {{15}} ->  {{20}} -> NULL'
 def test_linked_values(llt):
     assert str(llt) == f" {{5}} ->  {{10}} ->  {{15}} -> NULL"
+
+# this tests for negative input and indax not exist and happy path
+@pytest.mark.parametrize(
+    "input,expected_value",
+    [
+        (-5,"Negative number not acceptable"),
+        (10,"Index not found"),
+        (0,15),
+        (1,10),
+        (2,5),
+    ],
+)
+def test_all_valid_dice_rolls(input, expected_value,llt):
+
+    output = llt.kthFromEnd(input)
+    print(output)
+    assert output == expected_value
+
+# this tests for empty linked list
+def test_kthFromEnd_of_empty_linkedList():
+    empty_ll=LinkedList()
+    assert empty_ll.kthFromEnd(1) == "Empty List"

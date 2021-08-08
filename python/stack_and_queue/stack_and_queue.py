@@ -87,21 +87,27 @@ class Queue:
         return string
 
 
-if __name__ == "__main__":
-    q = Queue()
-    q.enqueue(10)
-    q.enqueue(20)
-    q.dequeue()
-    q.dequeue()
-    q.enqueue(30)
-    q.enqueue(40)
-    q.enqueue(50)
-    q.dequeue()
-    q.dequeue()
-    q.dequeue()
-    q.dequeue()
-    # print("Queue Front " + str(q.front.value))
-    print("Queue Rear " + str(q))
+if __name__ == "_main_":
+    ps = PseudoQueue()
+    ps.enqueue(5)
+    print(ps)
 
-    print(q.peek())
-    print("Is Empty " + str(q.is_empty()))
+
+# if __name__ == "__main__":
+#     q = Queue()
+#     q.enqueue(10)
+#     q.enqueue(20)
+#     q.dequeue()
+#     q.dequeue()
+#     q.enqueue(30)
+#     q.enqueue(40)
+#     q.enqueue(50)
+#     q.dequeue()
+#     q.dequeue()
+#     q.dequeue()
+#     q.dequeue()
+#     # print("Queue Front " + str(q.front.value))
+#     print("Queue Rear " + str(q))
+
+#     print(q.peek())
+#     print("Is Empty " + str(q.is_empty()))

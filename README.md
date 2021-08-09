@@ -29,3 +29,4 @@ To run your tests
   | Code_challenge_05 | [Code_challenge_05](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/linked_list/README.md) |
   | Code_challenge_06 | [Code_challenge_06](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/linked_list/README.md) |
   | Code_challenge_07 | [Code_challenge_07](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/linked_list/README.md) |
+  | Code_challenge_11 | [Code_challenge_11](https://github.com/arahal81/data-structures-and-algorithms/blob/main/python/pseudo_queue/README.md) |

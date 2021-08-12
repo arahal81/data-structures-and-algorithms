@@ -76,15 +76,25 @@ class LinkedList:
 
         if k <= -1:
             return("Negative number not acceptable")
-        values = []
-        while current:
-            values = values + [current.value]
-            current = current.next
-        print(values)
-        try:
+        # values=[]
+        # while current:
+        #     values =values+ [current.value]
+        #     current = current.next
+        # print(values)
+        # try:
 
-            return values[::-1][k]
-        except IndexError:
+        #     return values[::-1][k]
+        idx = -1
+        current = self.head
+        while current:
+            current = current.next
+            idx = idx + 1
+        if idx >= k:
+            current = self.head
+            for i in range(idx - k):
+                current = current.next
+            return current.value
+        else:
             return ("Index not found")
 
     def __str__(self) -> str:
@@ -96,6 +106,7 @@ class LinkedList:
             current = current.next
         string += "NULL"
         return string
+
 
 
 def zipLists(list1, list2):
@@ -174,19 +185,3 @@ if __name__ == "__main__":
     # linked_list2.insert(2)
     print(zipLists(linked_list1, linked_list2))
 
-# if __name__ == "__main__":
-#     ll = LinkedList()
-#     ll.insert(5)
-#     ll.insert(4)
-#     ll.insert(1)
-#     ll.insert(2)
-
-#     print(ll.includes(5))
-#     print(ll.kthFromEnd(6))
-#     linked_list1 = LinkedList()
-#     linked_list1.insert(2)
-#     linked_list1.insert(9)
-#     linked_list2 = LinkedList()
-#     linked_list2.insert(7)
-#     linked_list2.insert(4)
-#     print(zipLists(linked_list1, linked_list2))

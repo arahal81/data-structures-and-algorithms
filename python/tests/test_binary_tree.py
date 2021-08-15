@@ -79,9 +79,8 @@ def test_add_not_contains_bst(binary_search_tree):
     output = binary_search_tree.contains(8)
     assert output == False
 
+
 # test multi add to binary seaarch tree
-
-
 def test_add_multi_node_bst(binary_search_tree):
     binary_search_tree.add(10)
     binary_search_tree.add(12)
@@ -91,3 +90,20 @@ def test_add_multi_node_bst(binary_search_tree):
     binary_search_tree.add(7)
     binary_search_tree.add(6)
     assert binary_search_tree.pre_order() == [10, 9, 8, 7, 6, 12, 13]
+
+
+# “Happy Path” - Expected outcome
+def test_maximum_happy_path(binary_tree):
+    assert binary_tree.maximum_value() == 11
+
+
+# Expected failure
+def test_maximum_failure(binary_tree):
+    assert binary_tree.maximum_value() != 9
+
+
+# Edge Case (if applicable/obvious)
+def test_maximum_failure():
+    bt = BinaryTree()
+    with pytest.raises(Exception, match="The tree is empty!"):
+        bt.maximum_value()

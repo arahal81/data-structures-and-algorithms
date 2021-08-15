@@ -32,8 +32,8 @@ class BinaryTree:
             result.append(node.value)
             if node.right:
                 rec_fun(node.right)
-
-        rec_fun(self.root)
+        if self.root:
+            rec_fun(self.root)
         return result
 
     def post_order(self):
@@ -48,6 +48,19 @@ class BinaryTree:
 
         rec_fun(self.root)
         return result
+
+    def maximum_value(self) -> int:
+        tree_elemnts = self.in_order()
+        max = 0
+        if not tree_elemnts:
+            raise Exception("The tree is empty!")
+
+        else:
+            for node in tree_elemnts:
+                if node > max:
+                    max = node
+
+            return max
 
 
 class Binary_Search_Tree(BinaryTree):
@@ -98,30 +111,45 @@ class Binary_Search_Tree(BinaryTree):
         else:
             return False
 
+    def maximum_value_bst(self) -> int:
+        current = self.root
+        if not current:
+            raise Exception("The tree is empty!")
+
+        while True:
+            if current.right:
+                current = current.right
+            else:
+                return current.value
+
 
 if __name__ == "__main__":
-    bt = BinaryTree()
-    bt.root = Node(2)
-    bt.root.right = Node(5)
-    bt.root.left = Node(7)
-    bt.root.left.left = Node(2)
-    bt.root.left.right = Node(6)
-    bt.root.left.right.left = Node(5)
-    bt.root.left.right.right = Node(11)
-    bt.root.right.right = Node(9)
-    bt.root.right.right.left = Node(4)
-    print(bt.pre_order())
-    print(bt.in_order())
-    print(bt.post_order())
-    bst = Binary_Search_Tree()
-    bst.add(10)
-    bst.add(12)
-    bst.add(9)
-    bst.add(13)
-    bst.add(8)
-    bst.add(7)
-    bst.add(6)
-    print(bst.pre_order())
-    print(bst.in_order())
-    print(bst.post_order())
-    print(bst.contains(13))
+    # bt = BinaryTree()
+    # bt.root = Node(2)
+    # bt.root.right = Node(5)
+    # bt.root.left = Node(7)
+    # bt.root.left.left = Node(2)
+    # bt.root.left.right = Node(6)
+    # bt.root.left.right.left = Node(5)
+    # bt.root.left.right.right = Node(11)
+    # bt.root.right.right = Node(9)
+    # bt.root.right.right.left = Node(4)
+    # print(bt.maximum_value(), "maximum")
+    # print(bt.pre_order())
+    # print(bt.in_order())
+    # print(bt.post_order())
+    # bst = Binary_Search_Tree()
+    # bst.add(10)
+    # bst.add(12)
+    # bst.add(9)
+    # bst.add(13)
+    # bst.add(8)
+    # bst.add(7)
+    # bst.add(6)
+    # bst.add(14)
+    # print(bst.pre_order())
+    # print(bst.in_order())
+    # print(bst.post_order())
+    # print(bst.contains(13))
+    bt1 = BinaryTree()
+    bt1.maximum_value()

@@ -1,10 +1,33 @@
-# Insert to Middle of an Array:
+# Codechallenge16
+
+## Challenge Summary
+
+    -   Find the maximum node value in a binary tree
+
+## Whiteboard Process
+
+    ![](codechallenge16.jpg)
+
+## Approach & Efficiency
+
+This to find the best way for the compiler to excution to search for element in list.
+time: O(n) space: O(1)
+
+## Solution
+
+this finction will go through all nodes and finde maximum
+
+================================================================================================================================
+
+## codechllenge15
+
+## Insert to Middle of an Array:
 
 this program use binary search algorithem to serch inside list for element.
 
 ## Whiteboard Process
 
-![](codechallenge03.png)
+    ![](codechallenge03.png)
 
 ## Approach & Efficiency
 

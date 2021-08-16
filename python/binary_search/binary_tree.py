@@ -51,11 +51,10 @@ class BinaryTree:
 
     def maximum_value(self) -> int:
         tree_elemnts = self.in_order()
-        max = 0
         if not tree_elemnts:
             raise Exception("The tree is empty!")
-
         else:
+            max = self.root.value
             for node in tree_elemnts:
                 if node > max:
                     max = node
@@ -124,17 +123,17 @@ class Binary_Search_Tree(BinaryTree):
 
 
 if __name__ == "__main__":
-    # bt = BinaryTree()
-    # bt.root = Node(2)
-    # bt.root.right = Node(5)
-    # bt.root.left = Node(7)
-    # bt.root.left.left = Node(2)
-    # bt.root.left.right = Node(6)
-    # bt.root.left.right.left = Node(5)
-    # bt.root.left.right.right = Node(11)
-    # bt.root.right.right = Node(9)
-    # bt.root.right.right.left = Node(4)
-    # print(bt.maximum_value(), "maximum")
+    bt = BinaryTree()
+    bt.root = Node(2)
+    bt.root.right = Node(5)
+    bt.root.left = Node(7)
+    bt.root.left.left = Node(2)
+    bt.root.left.right = Node(6)
+    bt.root.left.right.left = Node(5)
+    bt.root.left.right.right = Node(11)
+    bt.root.right.right = Node(9)
+    bt.root.right.right.left = Node(4)
+    print(bt.maximum_value(), "maximum")
     # print(bt.pre_order())
     # print(bt.in_order())
     # print(bt.post_order())

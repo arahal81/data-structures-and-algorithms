@@ -1,4 +1,4 @@
-from binary_search.binary_tree import Binary_Search_Tree, BinaryTree, Node
+from binary_search.binary_tree import Binary_Search_Tree, BinaryTree, Node, breadth_first
 import pytest
 
 
@@ -107,3 +107,24 @@ def test_maximum_failure():
     bt = BinaryTree()
     with pytest.raises(Exception, match="The tree is empty!"):
         bt.maximum_value()
+
+
+def test_breadth_first_empty_tree():
+    tree = Binary_Search_Tree()
+    assert breadth_first(tree) == []
+
+
+def test_breadth_first_one_node():
+    tree = Binary_Search_Tree()
+    tree.add(7)
+    assert breadth_first(tree) == [7]
+
+
+def test_breadth_first_multi_node():
+    tree = Binary_Search_Tree()
+    input = [10, 20, 5, 4, 13, 6]
+    for item in input:
+        tree.add(item)
+    actual = breadth_first(tree)
+    expected = [10, 5, 20, 4, 6, 13]
+    assert actual == expected

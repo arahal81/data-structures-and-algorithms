@@ -1,4 +1,25 @@
-# Codechallenge16
+# Codechallenge17
+
+## Challenge Summary
+
+    -   Print tree elements breadth first
+
+## Whiteboard Process
+
+![](codechallenge17.jpg)
+
+## Approach & Efficiency
+
+This to find the best way for the compiler to excution to search for element in list.
+time: O(n) space: O(n)
+
+## Solution
+
+this function will go through all nodes and print them level by level from left to right
+
+================================================================================================================================
+
+## Codechallenge16
 
 ## Challenge Summary
 

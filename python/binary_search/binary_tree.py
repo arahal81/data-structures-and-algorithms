@@ -1,3 +1,4 @@
+# from stack_and_queue.stack_and_queue import Queue
 class Node:
     def __init__(self, value=None, left=None, right=None):
         self.value = value
@@ -122,6 +123,58 @@ class Binary_Search_Tree(BinaryTree):
                 return current.value
 
 
+class Node1:
+    def __init__(self, value=None):
+        self.value = value
+        self.next = None
+
+
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+    def is_empty(self):
+        return not self.rear
+
+    def enqueue(self, value):
+        node = Node1(value)
+        if not self.front and not self.rear:
+            self.front = self.rear = node
+        else:
+            temp = self.rear
+            self.rear = node
+            temp.next = self.rear
+
+    def dequeue(self):
+        if not self.front and not self.rear:
+            raise Exception("dequeuing from empty queue")
+        temp = self.front
+        self.front = self.front.next
+
+        if(self.front == None):
+            self.rear = None
+        return temp.value
+
+
+def breadth_first(tree):
+    list = []
+    if not tree.root:
+        return list
+    queque = Queue()
+    queque.enqueue(tree.root)
+    while not queque.is_empty():
+        item = queque.dequeue()
+        list.append(item.value)
+        if item.left if hasattr(item, 'left') else None:
+            queque.enqueue(item.left)
+
+        if item.right if hasattr(item, 'right') else None:
+            queque.enqueue(item.right)
+
+    return list
+
+
 if __name__ == "__main__":
     bt = BinaryTree()
     bt.root = Node(2)
@@ -133,7 +186,8 @@ if __name__ == "__main__":
     bt.root.left.right.right = Node(11)
     bt.root.right.right = Node(9)
     bt.root.right.right.left = Node(4)
-    print(bt.maximum_value(), "maximum")
+    print(breadth_first(bt))
+    # print(bt.maximum_value(), "maximum")
     # print(bt.pre_order())
     # print(bt.in_order())
     # print(bt.post_order())
@@ -150,5 +204,5 @@ if __name__ == "__main__":
     # print(bst.in_order())
     # print(bst.post_order())
     # print(bst.contains(13))
-    bt1 = BinaryTree()
-    bt1.maximum_value()
+    # bt1 = BinaryTree()
+    # bt1.maximum_value()

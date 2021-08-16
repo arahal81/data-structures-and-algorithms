@@ -6,12 +6,12 @@
 
 ## Whiteboard Process
 
-    ![](codechallenge16.jpg)
+![](codechallenge16.jpg)
 
 ## Approach & Efficiency
 
 This to find the best way for the compiler to excution to search for element in list.
-time: O(n) space: O(1)
+time: O(n) space: O(n)
 
 ## Solution
 
@@ -27,7 +27,7 @@ this program use binary search algorithem to serch inside list for element.
 
 ## Whiteboard Process
 
-    ![](codechallenge03.png)
+![](codechallenge03.png)
 
 ## Approach & Efficiency
 

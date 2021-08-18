@@ -1,4 +1,7 @@
 # from stack_and_queue.stack_and_queue import Queue
+from stack_and_queue.stack_and_queue import Queue
+
+
 class Node:
     def __init__(self, value=None, left=None, right=None):
         self.value = value
@@ -121,40 +124,6 @@ class Binary_Search_Tree(BinaryTree):
                 current = current.right
             else:
                 return current.value
-
-
-class Node1:
-    def __init__(self, value=None):
-        self.value = value
-        self.next = None
-
-
-class Queue:
-    def __init__(self):
-        self.front = None
-        self.rear = None
-
-    def is_empty(self):
-        return not self.rear
-
-    def enqueue(self, value):
-        node = Node1(value)
-        if not self.front and not self.rear:
-            self.front = self.rear = node
-        else:
-            temp = self.rear
-            self.rear = node
-            temp.next = self.rear
-
-    def dequeue(self):
-        if not self.front and not self.rear:
-            raise Exception("dequeuing from empty queue")
-        temp = self.front
-        self.front = self.front.next
-
-        if(self.front == None):
-            self.rear = None
-        return temp.value
 
 
 def breadth_first(tree):

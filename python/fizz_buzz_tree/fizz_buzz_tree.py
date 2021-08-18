@@ -17,6 +17,11 @@ class Tree:
 def fizz_buzz_tree(tree):
     if not tree.root:
         return tree
+    queue = Queue()
+    queue.enqueue(tree.root)
+    new_tree = Tree()
+    new_tree_node = Node(tree.root.value)
+    new_tree.root = Tree(new_tree_node)
     new_tree = tree
     if new_tree.root.value % 5 == 0 and new_tree.root.value % 3 == 0:
         new_tree.root.value = 'FizzBuzz'
@@ -60,7 +65,6 @@ def breadth_first(tree):
 
 
 if __name__ == "__main__":
-
     node = Node(2)
     node.children += [Node(7)]
     node.children += [Node(5)]
@@ -75,4 +79,5 @@ if __name__ == "__main__":
     node.children[1].children[1].children += [Node(30)]
 
     tree = Tree(node)
+    print(breadth_first(tree))
     print(breadth_first(fizz_buzz_tree(tree)))

@@ -1,46 +1,78 @@
-from binary_search.binary_tree import BinaryTree, Node, breadth_first
+
+from stack_and_queue.stack_and_queue import Queue
+# from trees.trees import BinaryTree
+
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.children = []
+
+
+class Tree:
+    def __init__(self, root=None):
+        self.root = root
 
 
 def fizz_buzz_tree(tree):
-
-    temp_tree = tree
-    if not temp_tree.root:
-        temp_tree.root = Node(None)
-        return temp_tree
+    if not tree.root:
+        return tree
+    new_tree = tree
+    if new_tree.root.value % 5 == 0 and new_tree.root.value % 3 == 0:
+        new_tree.root.value = 'FizzBuzz'
+    elif new_tree.root.value % 3 == 0:
+        new_tree.root.value = "Fizz"
+    elif new_tree.root.value % 5 == 0:
+        new_tree.root.value = "Buzz"
     else:
+        new_tree.root.value = str(new_tree.root.value)
 
-        def rec_func(node):
+    def rec_func(node):
+        if node.children:
+            for i in range(len(node.children)):
+                rec_func(node.children[i])
+                if node.children[i].value % 3 == 0 and node.children[i].value % 5 == 0:
+                    node.children[i].value = 'FizzBuzz'
+                elif node.children[i].value % 3 == 0:
+                    node.children[i].value = "Fizz"
+                elif node.children[i].value % 5 == 0:
+                    node.children[i].value = "Buzz"
+                else:
+                    node.children[i].value = str(node.children[i].value)
+    rec_func(new_tree.root)
 
-            if node.value % 3 == 0 and node.value % 5 == 0:
-                node.value = "FizzBuzz"
-            elif node.value % 3 == 0:
-                node.value = "Fizz"
-            elif node.value % 5 == 0:
-                node.value = "Buzz"
-            else:
-                node.value = str(node.value)
-            if node.left:
-                rec_func(node.left)
-            if node.right:
-                rec_func(node.right)
+    return new_tree
 
-        rec_func(temp_tree.root)
-        return temp_tree
+
+def breadth_first(tree):
+    if tree.root is None:
+        return []
+    queue = Queue()
+    queue.enqueue(tree.root)
+    output = []
+
+    while not queue.is_empty():
+        front = queue.dequeue()
+        output.append(front.value)
+        for i in range(len(front.children)):
+            queue.enqueue(front.children[i])
+    return output
 
 
 if __name__ == "__main__":
-    bt = BinaryTree()
-    bt.root = Node(2)
-    bt.root.right = Node(5)
-    bt.root.left = Node(7)
-    bt.root.left.left = Node(2)
-    bt.root.left.right = Node(6)
-    bt.root.left.right.left = Node(5)
-    bt.root.left.right.right = Node(11)
-    bt.root.right.right = Node(9)
-    bt.root.right.left = Node(15)
-    bt.root.right.left.right = Node(30)
-    bt.root.right.left.left = Node(13)
-    bt.root.right.right.left = Node(4)
-    print(breadth_first(bt))
-    print(breadth_first(fizz_buzz_tree(bt)))
+
+    node = Node(2)
+    node.children += [Node(7)]
+    node.children += [Node(5)]
+    node.children[0].children += [Node(2)]
+    node.children[0].children += [Node(4)]
+    node.children[1].children += [Node(9)]
+    node.children[1].children += [Node(8)]
+    node.children[0].children[1].children += [Node(6)]
+    node.children[0].children[1].children += [Node(10)]
+    node.children[0].children[1].children += [Node(18)]
+    node.children[0].children[1].children += [Node(15)]
+    node.children[1].children[1].children += [Node(30)]
+
+    tree = Tree(node)
+    print(breadth_first(fizz_buzz_tree(tree)))

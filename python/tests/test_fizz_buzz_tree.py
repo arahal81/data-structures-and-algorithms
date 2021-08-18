@@ -1,31 +1,31 @@
-from fizz_buzz_tree.fizz_buzz_tree import fizz_buzz_tree
-from binary_search.binary_tree import breadth_first, BinaryTree, Node
+from fizz_buzz_tree.fizz_buzz_tree import fizz_buzz_tree, Node, Tree, breadth_first
 import pytest
 
 
 @pytest.fixture
-def bt():
-    bt = BinaryTree()
-    bt.root = Node(2)
-    bt.root.right = Node(5)
-    bt.root.left = Node(7)
-    bt.root.left.left = Node(2)
-    bt.root.left.right = Node(6)
-    bt.root.left.right.left = Node(5)
-    bt.root.left.right.right = Node(11)
-    bt.root.right.right = Node(9)
-    bt.root.right.left = Node(15)
-    bt.root.right.left.right = Node(30)
-    bt.root.right.left.left = Node(13)
-    bt.root.right.right.left = Node(4)
-    return bt
+def k_tree():
+    node = Node(2)
+    node.children += [Node(7)]
+    node.children += [Node(5)]
+    node.children[0].children += [Node(2)]
+    node.children[0].children += [Node(4)]
+    node.children[1].children += [Node(9)]
+    node.children[1].children += [Node(8)]
+    node.children[0].children[1].children += [Node(6)]
+    node.children[0].children[1].children += [Node(10)]
+    node.children[0].children[1].children += [Node(18)]
+    node.children[0].children[1].children += [Node(15)]
+    node.children[1].children[1].children += [Node(30)]
+
+    k_tree = Tree(node)
+    return k_tree
 
 
-def test_fizz_buzz(bt):
-    assert breadth_first(fizz_buzz_tree(bt)) == [
-        '2', '7', 'Buzz', '2', 'Fizz', 'FizzBuzz', 'Fizz', 'Buzz', '11', '13', 'FizzBuzz', '4']
+def test_fizz_buzz(k_tree):
+    assert breadth_first(fizz_buzz_tree(k_tree)) == [
+        '2', '7', 'Buzz', '2', '4', 'Fizz', '8', 'Fizz', 'Buzz', 'Fizz', 'FizzBuzz', 'FizzBuzz']
 
 
 def test_fizz_buzz_empty_tree():
-    bt = BinaryTree()
-    assert breadth_first(fizz_buzz_tree(bt)) == breadth_first(bt)
+    k_tree = Tree()
+    assert breadth_first(fizz_buzz_tree(k_tree)) == breadth_first(k_tree)

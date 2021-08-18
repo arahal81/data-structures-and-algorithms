@@ -4,7 +4,7 @@ Fizz buzz tree challenge this function recive tree as parameter and return fizz 
 
 ## Whiteboard Process
 
-![](codechallenge18.jpg)
+![](codechallenge18-.jpg)
 
 ## Approach & Efficiency
 

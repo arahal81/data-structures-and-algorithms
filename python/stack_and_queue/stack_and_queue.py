@@ -87,10 +87,10 @@ class Queue:
         return string
 
 
-if __name__ == "_main_":
-    ps = PseudoQueue()
-    ps.enqueue(5)
-    print(ps)
+# if __name__ == "_main_":
+#     ps = PseudoQueue()
+#     ps.enqueue(5)
+#     print(ps)
 
 
 # if __name__ == "__main__":

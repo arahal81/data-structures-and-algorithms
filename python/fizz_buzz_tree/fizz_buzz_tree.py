@@ -1,6 +1,7 @@
 
 from stack_and_queue.stack_and_queue import Queue
 # from trees.trees import BinaryTree
+import copy
 
 
 class Node:
@@ -17,12 +18,10 @@ class Tree:
 def fizz_buzz_tree(tree):
     if not tree.root:
         return tree
+
+    new_tree = copy.deepcopy(tree)
     queue = Queue()
-    queue.enqueue(tree.root)
-    new_tree = Tree()
-    new_tree_node = Node(tree.root.value)
-    new_tree.root = Tree(new_tree_node)
-    new_tree = tree
+    queue.enqueue(new_tree.root)
     if new_tree.root.value % 5 == 0 and new_tree.root.value % 3 == 0:
         new_tree.root.value = 'FizzBuzz'
     elif new_tree.root.value % 3 == 0:
@@ -79,5 +78,6 @@ if __name__ == "__main__":
     node.children[1].children[1].children += [Node(30)]
 
     tree = Tree(node)
-    print(breadth_first(tree))
+
     print(breadth_first(fizz_buzz_tree(tree)))
+    print(breadth_first(tree))

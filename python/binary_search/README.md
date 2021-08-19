@@ -6,7 +6,7 @@
 
 ## Whiteboard Process
 
-![](codechallenge17.jpg)
+![](codechallenge17new.jpg)
 
 ## Approach & Efficiency
 

@@ -1,5 +1,51 @@
 # from stack_and_queue.stack_and_queue import Queue
-from stack_and_queue.stack_and_queue import Queue
+
+class Node1:
+    def __init__(self, value=None):
+        self.value = value
+        self.next = None
+
+
+class Queue:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+    def enqueue(self, value):
+        node = Node1(value)
+        if not self.front and not self.rear:
+            self.front = self.rear = node
+        else:
+            temp = self.rear
+            self.rear = node
+            temp.next = self.rear
+
+    def dequeue(self):
+        if not self.front and not self.rear:
+            raise Exception("dequeuing from empty queue")
+        temp = self.front
+        self.front = self.front.next
+
+        if(self.front == None):
+            self.rear = None
+        return temp.value
+
+    def peek(self):
+        if not self.front:
+            raise Exception("Peeking To Empty Queue")
+        return self.front.value
+
+    def is_empty(self):
+        return not self.rear
+
+    def __str__(self) -> str:
+        string = ""
+        current = self.front
+        while current:
+            string += f" {'{'}{str(current.value)}{'}'} -> "
+            current = current.next
+        string += "NULL"
+        return string
 
 
 class Node:
@@ -144,18 +190,65 @@ def breadth_first(tree):
     return list
 
 
+def treecheck(tree, tree1):
+
+    def nested_fun(tree):
+        counter = 0
+        if not tree.root:
+            return counter
+        queque = Queue()
+        queque.enqueue(tree.root)
+        while not queque.is_empty():
+            item = queque.dequeue()
+            if (item.value).find('.') != -1:
+                counter += 1
+            else:
+                if item.left if hasattr(item, 'left') else None:
+                    queque.enqueue(item.left)
+
+                if item.right if hasattr(item, 'right') else None:
+                    queque.enqueue(item.right)
+
+        return counter
+
+    file_counter1 = nested_fun(tree)
+    file_counter2 = nested_fun(tree1)
+    if file_counter1 == file_counter2:
+        return True
+    else:
+        return False
+
+
 if __name__ == "__main__":
     bt = BinaryTree()
-    bt.root = Node(2)
-    bt.root.right = Node(5)
-    bt.root.left = Node(7)
-    bt.root.left.left = Node(2)
-    bt.root.left.right = Node(6)
-    bt.root.left.right.left = Node(5)
-    bt.root.left.right.right = Node(11)
-    bt.root.right.right = Node(9)
-    bt.root.right.right.left = Node(4)
-    print(breadth_first(bt))
+    bt1 = BinaryTree()
+    bt.root = Node("d1")
+    bt.root.right = Node("dhdmd")
+    bt.root.left = Node("hhfg")
+    bt.root.left.left = Node("hhg.md")
+    bt.root.left.right = Node("jjfnc.md")
+    bt1.root = Node("dd")
+    bt1.root.right = Node("dhd")
+    bt1.root.left = Node("hhf")
+    bt1.root.left.left = Node("hhg.md")
+    bt1.root.left.right = Node("jjf.md")
+    bt1.root.right.left = Node("dhd.cs")
+    print(treecheck(bt1, bt))
+    print("alidali".find('.'))
+    # bt.root.left.right.left = Node(5)
+    # bt.root.left.right.right = Node(11)
+    # bt.root.right.right = Node(9)
+    # bt.root.right.right.left = Node(4)
+    # bt1.root = Node(2)
+    # bt1.root.right = Node(5)
+    # bt1.root.left = Node(7)
+    # bt1.root.left.left = Node(2)
+    # bt1.root.left.right = Node(6)
+    # bt1.root.left.right.left = Node(5)
+    # bt1.root.left.right.right = Node(11)
+    # bt1.root.right.right = Node(9)
+    # bt1.root.right.right.left = Node(4)
+    # print(breadth_first(bt))
     # print(bt.maximum_value(), "maximum")
     # print(bt.pre_order())
     # print(bt.in_order())

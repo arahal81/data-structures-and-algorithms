@@ -5,9 +5,8 @@ def insertion_Sort(unsorted_list: list) -> list:
 
         while j >= 0 and temp < unsorted_list[j]:
             unsorted_list[j + 1] = unsorted_list[j]
-            j = j - 1
             unsorted_list[j] = temp
-
+            j = j - 1
     return unsorted_list
 
 

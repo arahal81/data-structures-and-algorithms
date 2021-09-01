@@ -13,5 +13,5 @@ import pytest
 )
 def test_quick_sort(input, expected_value):
     temp = input
-    quick_sort(temp, 0, len(temp-1))
+    quick_sort(temp, 0, len(temp)-1)
     assert temp == expected_value

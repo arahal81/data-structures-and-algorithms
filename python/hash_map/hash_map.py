@@ -32,7 +32,7 @@ class LinkedList:
 
 
 class Hashmap():
-    def __init__(self, size=1024) -> None:
+    def __init__(self, size=15) -> None:
         self.size = size
         self._buckets = [None]*size
 
@@ -46,7 +46,7 @@ class Hashmap():
 
         return sum % self.size
 
-    def add(self, key, value=" "):
+    def add(self, key, value):
         """
             add: Arguments: key, value Returns: nothing
             This method hash the key, and add the key and value pair to the table, handling collisions as needed.
@@ -85,9 +85,9 @@ class Hashmap():
         return False
 
 
-if __name__ == "__main__":
-    hash_map = Hashmap(15)
-    hash_map.add("Ali", "0796873213")
-    hash_map.add("Sara", "0255444566")
-    print(hash_map.get("Ali"))
-    print(hash_map.get("ali"))
+# if __name__ == "__main__":
+#     hash_map = Hashmap(15)
+#     hash_map.add("Ali", "0796873213")
+#     hash_map.add("Sara", "0255444566")
+#     print(hash_map.get("Ali"))
+#     print(hash_map.get("ali"))

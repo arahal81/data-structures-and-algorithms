@@ -79,10 +79,12 @@ class Graph:
         """
         return len(self._adjacency_list)
 
-    def _breadthFirst(self, vertex, action=lambda x: print(x)):
+    def breadthFirst(self, vertex=None, action=lambda x: print(x)):
         """
         Performs a level order traversal of the graph and calls action at each node
         """
+        if not vertex:
+            return[]
         breadth = Queue()
         visited = set()
         nodes = []
@@ -90,8 +92,8 @@ class Graph:
         visited.add(vertex)
         while len(breadth):
             front = breadth.dequeue()
-            nodes.append(front.value)
-            neighbors = self.get_neighbors(front.value)
+            nodes.append(front)
+            neighbors = self.get_neighbors(front)
 
             for edge in neighbors:
                 n_v = edge.vertex
@@ -101,3 +103,15 @@ class Graph:
                     visited.add(n_v)
                     breadth.enqueue(n_v)
         return nodes
+
+
+if __name__ == "__main__":
+    graph = Graph()
+    node_z = graph.add_node("z")
+    node_a = graph.add_node("a")
+    node_y = graph.add_node("y")
+    node_f = graph.add_node("f")
+    graph.add_edge(node_a, node_z)
+    graph.add_edge(node_z, node_f)
+    graph.add_edge(node_f, node_y)
+    print(graph.breadthFirst(node_a))

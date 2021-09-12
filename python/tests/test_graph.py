@@ -89,3 +89,38 @@ def test_empty_graph():
     graph = Graph()
 
     assert not graph.get_nodes()
+
+
+# de
+
+def test_get_graph_breadthFirst():
+    graph = Graph()
+    node_z = graph.add_node("z")
+    node_a = graph.add_node("a")
+    node_y = graph.add_node("y")
+    node_f = graph.add_node("f")
+    graph.add_edge(node_a, node_z, 2)
+    graph.add_edge(node_z, node_f, 5)
+    graph.add_edge(node_a, node_y, 4)
+    breadth = graph.breadthFirst(node_a)
+    actual = [vertex.value for vertex in breadth]
+    expected = ['a', 'z', 'y', 'f']
+    assert actual == expected
+
+
+def test_get_breadthFirst_graph_one_vertex():
+    graph = Graph()
+    node_a = graph.add_node("a")
+
+    breadth = graph.breadthFirst(node_a)
+    actual = [vertex.value for vertex in breadth]
+    expected = ['a']
+    assert actual == expected
+
+
+def test_get_breadthFirst_empty_graph():
+    graph = Graph()
+    breadth = graph.breadthFirst()
+    actual = [vertex.value for vertex in breadth]
+    expected = []
+    assert actual == expected

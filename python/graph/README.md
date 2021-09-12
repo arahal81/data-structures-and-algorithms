@@ -6,14 +6,20 @@ A graph is a non-linear data structure that can be looked at as a collection of 
 
 Implement your own Graph. The graph should be represented as an adjacency list, and should include the following methods:
 
+    - breadthFirst
     - add node
     - add edge
     - get nodes
     - get neighbors
     - size
 
+## Whiteboard Process
+
+![](codechallenge18-.jpg)
+
 ## Approach & Efficiency
 
+    - breadthFirst time : O(nlogn) space : O(n)
     - add node: time:O(1) space:O(1)
     - add edge: time:O(1) space:O(1)
     - get nodes: time:O(n) space:O(1)

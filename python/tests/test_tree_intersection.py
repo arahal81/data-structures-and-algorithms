@@ -17,7 +17,9 @@ def test_common_nodes():
     bt1.root.left.right = Node("400")
     bt1.root.right.left = Node("250")
 
-    assert ['250', '10', '200'] == tree_intersection(bt, bt1)
+
+    assert ['10', '200', '250'] == tree_intersection(bt, bt1)
+
 
 
 def test_first_tree_empty():

@@ -1,4 +1,28 @@
-# Graphs
+# Code Challenge 38
+
+## Challenge Summary
+
+Write the following method for the Graph class:
+depth first
+Arguments: Node (Starting point of search)
+Return: A collection of nodes in their pre-order depth-first traversal order
+
+## Whiteboard Process
+
+![](codechallenge38.jpg)
+
+## Approach & Efficiency
+
+time : O(nlogn)
+space : O(n)
+
+## Solution
+
+use the example below the code to make run the code by click F5
+
+## Code challenge 36
+
+## Graphs
 
 A graph is a non-linear data structure that can be looked at as a collection of vertices (or nodes) potentially connected by line segments named edges.
 
@@ -15,7 +39,7 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 
 ## Whiteboard Process
 
-![](codechallenge18-.jpg)
+![](codechallenge36.jpg)
 
 ## Approach & Efficiency
 

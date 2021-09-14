@@ -104,14 +104,58 @@ class Graph:
                     breadth.enqueue(n_v)
         return nodes
 
+    def depth_first(self, vertex=None):
+        if not vertex:
+            return[]
+        visited = set()
+        nodes = []
+
+        def rec_fun(node):
+            neighbors = self.get_neighbors(node)
+
+            for neighbor in neighbors:
+                n_v = neighbor.vertex
+                if n_v in visited:
+                    continue
+                else:
+                    nodes.append(n_v)
+                    visited.add(n_v)
+                    rec_fun(n_v)
+
+        nodes.append(vertex)
+        rec_fun(vertex)
+        return nodes
+
 
 if __name__ == "__main__":
+    # graph = Graph()
+    # node_z = graph.add_node("z")
+    # node_a = graph.add_node("a")
+    # node_y = graph.add_node("y")
+    # node_f = graph.add_node("f")
+    # graph.add_edge(node_a, node_z)
+    # graph.add_edge(node_z, node_f)
+    # graph.add_edge(node_f, node_y)
+    # print(graph.breadthFirst(node_a))
+    # print(graph.depth_first(node_a))
     graph = Graph()
-    node_z = graph.add_node("z")
-    node_a = graph.add_node("a")
-    node_y = graph.add_node("y")
-    node_f = graph.add_node("f")
-    graph.add_edge(node_a, node_z)
-    graph.add_edge(node_z, node_f)
-    graph.add_edge(node_f, node_y)
-    print(graph.breadthFirst(node_a))
+    node_a = graph.add_node("A")
+    node_b = graph.add_node("B")
+    node_c = graph.add_node("C")
+    node_g = graph.add_node("G")
+    node_d = graph.add_node("D")
+    node_e = graph.add_node("E")
+    node_h = graph.add_node("H")
+    node_f = graph.add_node("F")
+    graph.add_edge(node_a, node_b)
+    graph.add_edge(node_a, node_d)
+    graph.add_edge(node_b, node_c)
+    graph.add_edge(node_c, node_g)
+    graph.add_edge(node_b, node_d)
+    graph.add_edge(node_d, node_e)
+    graph.add_edge(node_d, node_f)
+    graph.add_edge(node_d, node_h)
+    graph.add_edge(node_f, node_h)
+    breadth = graph.depth_first(node_a)
+    actual = [vertex.value for vertex in breadth]
+    print(actual)
